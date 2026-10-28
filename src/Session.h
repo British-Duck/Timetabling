@@ -8,7 +8,7 @@ public:
     std::string moduleCode; // Module this session belongs to
     std::string lecturer;   // Lecturer for session
     std::string room;       // Room for the session
-    int week;               // week number (1-53)
+    int week = 0;           // week number (1-53)
 
     // Time/day of the session
     std::string day;

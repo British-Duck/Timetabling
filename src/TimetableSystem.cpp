@@ -61,20 +61,23 @@ void TimetableSystem::addModule(const Module& module) {
 }
 
 void TimetableSystem::loadData() {
-
-    try {
-        ifstream file("data.dat");
-        if (file) {
-            string line;
-            while (getline(file, line)) {
+    ifstream file("data.dat");
+    if (file) {
+        string line;
+        int lineNumber = 0;
+        while (getline(file, line)) {
+            lineNumber++;
+            if (line.empty()) continue;
+            // A malformed line is reported and skipped rather than abandoning the rest of the file
+            try {
                 Session s;
                 s.fromCSV(line);
                 addSession(s);
             }
+            catch (const exception& e) {
+                cerr << "Load error on data.dat line " << lineNumber << ": " << e.what() << endl;
+            }
         }
-    }
-    catch (const exception& e) {
-        cerr << "Load error: " << e.what() << endl;
     }
 
     ifstream sgfile("students.dat");
