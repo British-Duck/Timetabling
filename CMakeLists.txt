@@ -22,3 +22,9 @@ target_include_directories(timetable_core PUBLIC src)
 
 add_executable(timetable src/Main.cpp)
 target_link_libraries(timetable PRIVATE timetable_core)
+
+# ---- Tests: `ctest --test-dir build` (or run build/timetable_tests directly)
+enable_testing()
+add_executable(timetable_tests tests/test_main.cpp)
+target_link_libraries(timetable_tests PRIVATE timetable_core)
+add_test(NAME timetable_tests COMMAND timetable_tests WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
