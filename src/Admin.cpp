@@ -24,7 +24,7 @@ bool Admin::login() {
         return false;
     }
 
-    // Simple demo detials
+    // Hard-coded demo credentials
     return username == "admin" && password == "admin123";
 }
 
@@ -584,7 +584,6 @@ void Admin::checkConflicts() {
 
 void Admin::displayTimetableEntries() const {
     const auto& sessions = system->getAllSessions();
-    const auto& modules = system->getAllModules();
 
     if (sessions.empty()) {
         cout << "\nNo timetable entries found.\n";
@@ -596,14 +595,6 @@ void Admin::displayTimetableEntries() const {
 
     for (size_t i = 0; i < sessions.size(); i++) {
         const auto& session = sessions[i];
-        string moduleName;
-        for (const auto& m : modules) {
-            if (m.code == session.moduleCode) {
-                moduleName = m.name;
-                break;
-            }
-        }
-
         cout << (i + 1) << "\t" << session.moduleCode << "\t" << session.type << "\t" << session.day
              << "\t" << session.time << "\t" << session.room << "\t";
 

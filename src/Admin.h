@@ -3,7 +3,6 @@
 #include "Session.h"
 #include "TimetableSystem.h"
 
-// Replace existing class with this enhanced version
 class Admin : public User {
 public:
     Admin(TimetableSystem* sys) : User(sys) {}
@@ -32,7 +31,5 @@ private:
 
     //-------------------- Helper functions---------------------//
     void displayTimetableEntries() const; // shows all entries
-    int selectTimetableEntry() const;     // selcets entry by ID
-    Session getSessionInput(bool forEdit = false, const Session* existing = nullptr) const;
-    void displayConflicts(const std::vector<Session>& conflicts) const;
+    int selectTimetableEntry() const;     // selects entry by ID
 };

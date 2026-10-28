@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <vector>
 
 // Forward declaration to avoid circular dependencies
 class TimetableSystem;

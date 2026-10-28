@@ -4,11 +4,11 @@
 
 class Session {
 public:
-    std::string type;       // Session type(e.g. Lecture/Lab/Tutorial)
-    std::string moduleCode; // Module this session belongs too
+    std::string type;       // Session type (e.g. Lecture/Lab/Tutorial)
+    std::string moduleCode; // Module this session belongs to
     std::string lecturer;   // Lecturer for session
     std::string room;       // Room for the session
-    int week;               // week number(1-53)
+    int week;               // week number (1-53)
 
     // Time/day of the session
     std::string day;

@@ -7,8 +7,6 @@
 #include "Module.h"
 #include <unordered_map>
 
-class User; // Forward declaration
-
 class TimetableSystem {
 private:
     //-----------------Data storage ------------------//
@@ -17,7 +15,7 @@ private:
     std::map<std::string, std::vector<Session>> groupTimetables;
     std::set<std::string> sessionTypes;     // tracks allowed session types
     std::vector<std::string> studentGroups; // All student groups
-    std::vector<std::string> rooms;         // All avalible rooms
+    std::vector<std::string> rooms;         // All available rooms
     std::vector<std::string> lecturers;     // All lecturers
     std::vector<std::string> students;      // All registered students
     std::unordered_map<std::string, std::string> studentGroupMap;
@@ -28,17 +26,17 @@ public:
     void loadData();
     void saveData();
 
-    //-----------------Session managment------------------------//
+    //-----------------Session management------------------------//
     const std::vector<Session>& getGroupTimetable(const std::string& group) const;
     void addSession(const Session& session);
     bool removeSession(int index);
     bool editSession(int index, const Session& newSession);
     std::vector<Session> findConflicts(const Session& session) const;
 
-    //-------------------Module managment----------------//
+    //-------------------Module management----------------//
     void addModule(const Module& module);
 
-    //-----------------Data Managment--------------------//
+    //-----------------Data management--------------------//
     bool addStudentGroup(const std::string& group);
     bool removeStudentGroup(const std::string& group);
     bool addSessionType(const std::string& type);
@@ -48,7 +46,7 @@ public:
     bool assignStudentToGroup(const std::string& studentId, const std::string& group);
     bool assignLecturerToModule(const std::string& lecturer, const std::string& moduleCode);
 
-    //--------------------Data Accesors-------------------------//
+    //--------------------Data accessors-------------------------//
     const std::vector<Session>& getAllSessions() const;
     const std::vector<std::string>& getAllStudentGroups() const;
     const std::set<std::string>& getAllSessionTypes() const;
