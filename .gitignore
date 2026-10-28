@@ -1,0 +1,23 @@
+# Build outputs
+build/
+cmake-build-*/
+*.o
+*.obj
+*.exe
+*.ilk
+*.pdb
+*.idb
+*.tlog/
+*.log
+
+# IDE / editor
+.vs/
+.vscode/
+.idea/
+*.vcxproj.user
+*.suo
+
+# Runtime data written by the program
+data.dat
+students.dat
+timetable_*.csv
