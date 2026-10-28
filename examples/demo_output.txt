@@ -1,0 +1,87 @@
+Initializing NTU Timetable System...
+Loading system data...
+
+Welcome to NTU Timetable System
+
+NTU Timetabling System
+1. Admin Login
+2. Student Login
+3. Exit
+Choice: Admin Username: Password: 
+MAIN ADMIN MENU
+1. Manage Data
+2. Manage Timetable
+3. Logout
+Choice: 
+TIMETABLE MANAGEMENT MENU
+1. Create New Entry
+2. Edit Existing Entry
+3. Delete Entry
+4. Check for Conflicts
+5. View All Entries
+6. Back to Main Menu
+Choice: 
+CURRENT TIMETABLE ENTRIES
+ID	Module		Type	Day	Time	Room	Groups
+1	CS201	Lecture	Monday	09:00	A101	GroupA, GroupB
+2	CS202	Lab	Monday	11:00	B204	GroupA
+3	CS202	Lab	Monday	13:00	B205	GroupB
+4	CS203	Tutorial	Tuesday	10:00	C010	GroupB
+5	CS204	Lecture	Tuesday	10:00	A101	GroupA
+
+TIMETABLE MANAGEMENT MENU
+1. Create New Entry
+2. Edit Existing Entry
+3. Delete Entry
+4. Check for Conflicts
+5. View All Entries
+6. Back to Main Menu
+Choice: 
+Conflicts for entry 4:
+Module: CS203, Tuesday 10:00 in C010
+- CONFLICT WITH: CS204, Tuesday 10:00 in A101
+
+Conflicts for entry 5:
+Module: CS204, Tuesday 10:00 in A101
+- CONFLICT WITH: CS203, Tuesday 10:00 in C010
+
+TIMETABLE MANAGEMENT MENU
+1. Create New Entry
+2. Edit Existing Entry
+3. Delete Entry
+4. Check for Conflicts
+5. View All Entries
+6. Back to Main Menu
+Choice: 
+MAIN ADMIN MENU
+1. Manage Data
+2. Manage Timetable
+3. Logout
+Choice: 
+NTU Timetabling System
+1. Admin Login
+2. Student Login
+3. Exit
+Choice: Student ID: 
+STUDENT MENU
+1. View Timetable
+2. Export to CSV
+3. Logout
+Choice: 
+Your Timetable (GroupA):
+Week	Day		Time	Module		Type	Room	Lecturer
+1	Monday	09:00	CS201	Lecture	A101	Dr Patel
+1	Monday	11:00	CS202	Lab	B204	Dr Okafor
+1	Tuesday	10:00	CS204	Lecture	A101	Dr Okafor
+
+STUDENT MENU
+1. View Timetable
+2. Export to CSV
+3. Logout
+Choice: 
+NTU Timetabling System
+1. Admin Login
+2. Student Login
+3. Exit
+Choice: Saving system data...
+Thank you for using NTU Timetable System. Goodbye!
