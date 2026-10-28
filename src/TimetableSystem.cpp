@@ -246,7 +246,7 @@ std::string TimetableSystem::getStudentGroup(const std::string& studentId) const
 
 
 bool TimetableSystem::removeSession(int index) {
-    if (index < 0 || index >= sessions.size()) return false;
+    if (index < 0 || index >= static_cast<int>(sessions.size())) return false;
 
     // Remove from main sessions list
     sessions.erase(sessions.begin() + index);
@@ -262,7 +262,7 @@ bool TimetableSystem::removeSession(int index) {
 }
 
 bool TimetableSystem::editSession(int index, const Session& newSession) {
-    if (index < 0 || index >= sessions.size()) return false;
+    if (index < 0 || index >= static_cast<int>(sessions.size())) return false;
 
     sessions[index] = newSession;
 
