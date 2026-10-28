@@ -1,5 +1,6 @@
 #include "Student.h"
 #include "TimetableSystem.h"
+#include "Input.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -32,8 +33,7 @@ void Student::showMenu() {
         cout << "\nSTUDENT MENU\n";
         cout << "1. View Timetable\n2. Export to CSV\n3. Logout\nChoice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(3);
 
         try {
             switch (choice) {

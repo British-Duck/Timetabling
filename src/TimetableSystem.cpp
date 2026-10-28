@@ -2,6 +2,7 @@
 #include "Admin.h"
 #include "Student.h"
 #include <algorithm>
+#include "Input.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -12,8 +13,7 @@ void TimetableSystem::run() {
         cout << "\nNTU Timetabling System\n";
         cout << "1. Admin Login\n2. Student Login\n3. Exit\nChoice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(3);
 
         try {
             if (choice == 1) {

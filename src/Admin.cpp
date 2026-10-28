@@ -2,6 +2,7 @@
 #include "Module.h"
 #include "Session.h"
 #include "TimetableSystem.h"
+#include "Input.h"
 #include <iostream>
 #include <limits>
 #include <algorithm>
@@ -36,8 +37,7 @@ void Admin::showMenu() {
              << "3. Logout\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(3);
 
         try {
             switch (choice) {
@@ -67,8 +67,7 @@ void Admin::manageDataMenu() {
              << "7. Back to Main Menu\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(7);
 
         try {
             switch (choice) {
@@ -101,8 +100,7 @@ void Admin::manageTimetableMenu() {
              << "6. Back to Main Menu\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(6);
 
         try {
             switch (choice) {
@@ -131,8 +129,7 @@ void Admin::manageModules() {
              << "3. Back\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(3);
 
         if (choice == 1) {
             Module m;
@@ -170,8 +167,7 @@ void Admin::manageStudentGroups() {
              << "4. Back\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(4);
 
         if (choice == 1) {
             string group;
@@ -219,8 +215,7 @@ void Admin::manageSessionTypes() {
              << "3. Back\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(3);
 
         if (choice == 1) {
             string type;
@@ -257,8 +252,7 @@ void Admin::manageRooms() {
              << "3. Back\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(3);
 
         if (choice == 1) {
             string room;
@@ -297,8 +291,7 @@ void Admin::manageLecturers() {
              << "4. Back\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(4);
 
         if (choice == 1) {
             string lecturer;
@@ -351,8 +344,7 @@ void Admin::manageStudents() {
              << "4. Back\n"
              << "Choice: ";
 
-        int choice;
-        cin >> choice;
+        int choice = readMenuChoice(4);
 
         if (choice == 1) {
             string studentId;
@@ -476,7 +468,7 @@ void Admin::createTimetableEntry() {
                  << " in " << conflict.room << "\n";
         }
         cout << "\nDo you want to add anyway? (y/n): ";
-        char choice;
+        char choice = 'n';
         cin >> choice;
         if (tolower(choice) != 'y') {
             cout << "Entry creation cancelled.\n";
@@ -522,7 +514,7 @@ void Admin::editTimetableEntry() {
                  << " in " << conflict.room << "\n";
         }
         cout << "\nDo you want to save changes anyway? (y/n): ";
-        char choice;
+        char choice = 'n';
         cin >> choice;
         if (tolower(choice) != 'y') {
             cout << "Edit cancelled.\n";
@@ -543,7 +535,7 @@ void Admin::deleteTimetableEntry() {
     if (id <= 0) return;
 
     cout << "Are you sure you want to delete this entry? (y/n): ";
-    char choice;
+    char choice = 'n';
     cin >> choice;
     if (tolower(choice) != 'y') {
         cout << "Deletion cancelled.\n";
