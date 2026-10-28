@@ -9,6 +9,7 @@ set -e
 root="$(cd "$(dirname "$0")/.." && pwd)"
 bin="$root/build/timetable"
 [ -x "$bin" ] || bin="$root/build/timetable.exe"
+[ -x "$bin" ] || bin="$root/build/Debug/timetable.exe" # Visual Studio generator
 [ -x "$bin" ] || { echo "Build first: cmake -B build && cmake --build build" >&2; exit 1; }
 
 work="$(mktemp -d)"
