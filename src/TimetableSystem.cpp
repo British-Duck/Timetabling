@@ -272,13 +272,14 @@ bool TimetableSystem::editSession(int index, const Session& newSession) {
     return true;
 }
 
-vector<Session> TimetableSystem::findConflicts(const Session& session) const {
+vector<Session> TimetableSystem::findConflicts(const Session& session, int ignoreIndex) const {
     vector<Session> conflicts;
 
-    for (const auto& existing : sessions) {
+    for (size_t i = 0; i < sessions.size(); i++) {
+        const Session& existing = sessions[i];
+
         // Skip self-comparison for existing sessions
-        if (existing.moduleCode == session.moduleCode && existing.week == session.week &&
-            existing.day == session.day && existing.time == session.time) {
+        if (static_cast<int>(i) == ignoreIndex) {
             continue;
         }
 

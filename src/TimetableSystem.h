@@ -31,7 +31,9 @@ public:
     void addSession(const Session& session);
     bool removeSession(int index);
     bool editSession(int index, const Session& newSession);
-    std::vector<Session> findConflicts(const Session& session) const;
+    // ignoreIndex: position of `session` in getAllSessions() when it is already stored,
+    // so it is not reported as clashing with itself. Use -1 for a new session.
+    std::vector<Session> findConflicts(const Session& session, int ignoreIndex = -1) const;
 
     //-------------------Module management----------------//
     void addModule(const Module& module);

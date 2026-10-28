@@ -514,7 +514,7 @@ void Admin::editTimetableEntry() {
     // Similar editing for other fields (module, lecturer, room, etc.)
 
     // Check for conflicts
-    auto conflicts = system->findConflicts(updated);
+    auto conflicts = system->findConflicts(updated, id - 1);
     if (!conflicts.empty()) {
         cout << "\nWARNING: Potential conflicts found:\n";
         for (const auto& conflict : conflicts) {
@@ -563,7 +563,7 @@ void Admin::checkConflicts() {
     bool foundConflicts = false;
 
     for (size_t i = 0; i < sessions.size(); i++) {
-        auto conflicts = system->findConflicts(sessions[i]);
+        auto conflicts = system->findConflicts(sessions[i], static_cast<int>(i));
         if (!conflicts.empty()) {
             foundConflicts = true;
             cout << "\nConflicts for entry " << (i + 1) << ":\n";
