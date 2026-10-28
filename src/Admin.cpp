@@ -456,7 +456,7 @@ void Admin::createTimetableEntry() {
     while (getline(iss, group, ',')) {
         group.erase(0, group.find_first_not_of(" \t"));
         group.erase(group.find_last_not_of(" \t") + 1);
-        newSession.studentGroups.push_back(group);
+        if (!group.empty()) newSession.studentGroups.push_back(group);
     }
 
     // Check for conflicts
