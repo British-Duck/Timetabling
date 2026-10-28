@@ -1,6 +1,7 @@
 #include "TimetableSystem.h"
 #include "Admin.h"
 #include "Student.h"
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <limits>
