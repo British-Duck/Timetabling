@@ -500,10 +500,12 @@ void Admin::editTimetableEntry() {
     }
     cout << "Enter new type: ";
     string input;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard the newline after the entry ID
     getline(cin, input);
     if (!input.empty()) updated.type = input;
 
-    // Similar editing for other fields (module, lecturer, room, etc.)
+    // Only the session type is editable so far; other fields are listed as a limitation in the
+    // README.
 
     // Check for conflicts
     auto conflicts = system->findConflicts(updated, id - 1);
