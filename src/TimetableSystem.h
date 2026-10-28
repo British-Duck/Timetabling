@@ -5,25 +5,21 @@
 #include <set>
 #include "Session.h"
 #include "Module.h"
-#include <unordered_map> 
-
-
-
+#include <unordered_map>
 
 class User; // Forward declaration
 
 class TimetableSystem {
 private:
-
     //-----------------Data storage ------------------//
     std::vector<Module> modules;
     std::vector<Session> sessions;
     std::map<std::string, std::vector<Session>> groupTimetables;
-    std::set<std::string> sessionTypes;  // tracks allowed session types
-    std::vector<std::string> studentGroups;  // All student groups
-    std::vector<std::string> rooms;  // All avalible rooms
-    std::vector<std::string> lecturers;  // All lecturers
-    std::vector<std::string> students;  // All registered students
+    std::set<std::string> sessionTypes;     // tracks allowed session types
+    std::vector<std::string> studentGroups; // All student groups
+    std::vector<std::string> rooms;         // All avalible rooms
+    std::vector<std::string> lecturers;     // All lecturers
+    std::vector<std::string> students;      // All registered students
     std::unordered_map<std::string, std::string> studentGroupMap;
 
 public:
@@ -38,7 +34,7 @@ public:
     bool removeSession(int index);
     bool editSession(int index, const Session& newSession);
     std::vector<Session> findConflicts(const Session& session) const;
-    
+
     //-------------------Module managment----------------//
     void addModule(const Module& module);
 
@@ -65,5 +61,4 @@ public:
 
     // For testing/demo purposes
     void createSampleData();
-    
 };

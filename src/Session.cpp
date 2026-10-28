@@ -4,8 +4,8 @@ using namespace std;
 
 string Session::toCSV() const {
     ostringstream oss;
-    oss << type << "," << moduleCode << "," << lecturer << ","
-        << room << "," << week << "," << day << "," << time;
+    oss << type << "," << moduleCode << "," << lecturer << "," << room << "," << week << "," << day
+        << "," << time;
     for (const auto& group : studentGroups) {
         oss << "," << group;
     }

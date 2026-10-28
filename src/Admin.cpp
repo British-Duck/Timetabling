@@ -9,7 +9,6 @@
 #include <cctype>
 using namespace std;
 
-
 bool Admin::login() {
     cout << "Admin Username: ";
     if (!(cin >> username)) {
@@ -25,7 +24,7 @@ bool Admin::login() {
         return false;
     }
 
-    // Simple demo detials 
+    // Simple demo detials
     return username == "admin" && password == "admin123";
 }
 
@@ -33,9 +32,9 @@ void Admin::showMenu() {
     while (true) {
         cout << "\nMAIN ADMIN MENU\n";
         cout << "1. Manage Data\n"
-            << "2. Manage Timetable\n"
-            << "3. Logout\n"
-            << "Choice: ";
+             << "2. Manage Timetable\n"
+             << "3. Logout\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -60,13 +59,13 @@ void Admin::manageDataMenu() {
     while (true) {
         cout << "\nDATA MANAGEMENT MENU\n";
         cout << "1. Manage Modules\n"
-            << "2. Manage Student Groups\n"
-            << "3. Manage Session Types\n"
-            << "4. Manage Rooms\n"
-            << "5. Manage Lecturers\n"
-            << "6. Manage Students\n"
-            << "7. Back to Main Menu\n"
-            << "Choice: ";
+             << "2. Manage Student Groups\n"
+             << "3. Manage Session Types\n"
+             << "4. Manage Rooms\n"
+             << "5. Manage Lecturers\n"
+             << "6. Manage Students\n"
+             << "7. Back to Main Menu\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -95,12 +94,12 @@ void Admin::manageTimetableMenu() {
     while (true) {
         cout << "\nTIMETABLE MANAGEMENT MENU\n";
         cout << "1. Create New Entry\n"
-            << "2. Edit Existing Entry\n"
-            << "3. Delete Entry\n"
-            << "4. Check for Conflicts\n"
-            << "5. View All Entries\n"
-            << "6. Back to Main Menu\n"
-            << "Choice: ";
+             << "2. Edit Existing Entry\n"
+             << "3. Delete Entry\n"
+             << "4. Check for Conflicts\n"
+             << "5. View All Entries\n"
+             << "6. Back to Main Menu\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -128,9 +127,9 @@ void Admin::manageModules() {
     while (true) {
         cout << "\nMODULE MANAGEMENT\n";
         cout << "1. Add Module\n"
-            << "2. List Modules\n"
-            << "3. Back\n"
-            << "Choice: ";
+             << "2. List Modules\n"
+             << "3. Back\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -166,10 +165,10 @@ void Admin::manageStudentGroups() {
     while (true) {
         cout << "\nSTUDENT GROUP MANAGEMENT\n";
         cout << "1. Add Group\n"
-            << "2. Remove Group\n"
-            << "3. List Groups\n"
-            << "4. Back\n"
-            << "Choice: ";
+             << "2. Remove Group\n"
+             << "3. List Groups\n"
+             << "4. Back\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -216,9 +215,9 @@ void Admin::manageSessionTypes() {
     while (true) {
         cout << "\nSESSION TYPE MANAGEMENT\n";
         cout << "1. Add Type\n"
-            << "2. List Types\n"
-            << "3. Back\n"
-            << "Choice: ";
+             << "2. List Types\n"
+             << "3. Back\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -254,9 +253,9 @@ void Admin::manageRooms() {
     while (true) {
         cout << "\nROOM MANAGEMENT\n";
         cout << "1. Add Room\n"
-            << "2. List Rooms\n"
-            << "3. Back\n"
-            << "Choice: ";
+             << "2. List Rooms\n"
+             << "3. Back\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -293,10 +292,10 @@ void Admin::manageLecturers() {
     while (true) {
         cout << "\nLECTURER MANAGEMENT\n";
         cout << "1. Add Lecturer\n"
-            << "2. Assign to Module\n"
-            << "3. List Lecturers\n"
-            << "4. Back\n"
-            << "Choice: ";
+             << "2. Assign to Module\n"
+             << "3. List Lecturers\n"
+             << "4. Back\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -347,10 +346,10 @@ void Admin::manageStudents() {
     while (true) {
         cout << "\nSTUDENT MANAGEMENT\n";
         cout << "1. Register Student\n"
-            << "2. Assign to Group\n"
-            << "3. List Students\n"
-            << "4. Back\n"
-            << "Choice: ";
+             << "2. Assign to Group\n"
+             << "3. List Students\n"
+             << "4. Back\n"
+             << "Choice: ";
 
         int choice;
         cin >> choice;
@@ -473,9 +472,8 @@ void Admin::createTimetableEntry() {
     if (!conflicts.empty()) {
         cout << "\nWARNING: Potential conflicts found:\n";
         for (const auto& conflict : conflicts) {
-            cout << "- " << conflict.moduleCode << " at "
-                << conflict.day << " " << conflict.time
-                << " in " << conflict.room << "\n";
+            cout << "- " << conflict.moduleCode << " at " << conflict.day << " " << conflict.time
+                 << " in " << conflict.room << "\n";
         }
         cout << "\nDo you want to add anyway? (y/n): ";
         char choice;
@@ -520,9 +518,8 @@ void Admin::editTimetableEntry() {
     if (!conflicts.empty()) {
         cout << "\nWARNING: Potential conflicts found:\n";
         for (const auto& conflict : conflicts) {
-            cout << "- " << conflict.moduleCode << " at "
-                << conflict.day << " " << conflict.time
-                << " in " << conflict.room << "\n";
+            cout << "- " << conflict.moduleCode << " at " << conflict.day << " " << conflict.time
+                 << " in " << conflict.room << "\n";
         }
         cout << "\nDo you want to save changes anyway? (y/n): ";
         char choice;
@@ -570,14 +567,12 @@ void Admin::checkConflicts() {
         if (!conflicts.empty()) {
             foundConflicts = true;
             cout << "\nConflicts for entry " << (i + 1) << ":\n";
-            cout << "Module: " << sessions[i].moduleCode
-                << ", " << sessions[i].day << " " << sessions[i].time
-                << " in " << sessions[i].room << "\n";
+            cout << "Module: " << sessions[i].moduleCode << ", " << sessions[i].day << " "
+                 << sessions[i].time << " in " << sessions[i].room << "\n";
 
             for (const auto& conflict : conflicts) {
-                cout << "- CONFLICT WITH: " << conflict.moduleCode
-                    << ", " << conflict.day << " " << conflict.time
-                    << " in " << conflict.room << "\n";
+                cout << "- CONFLICT WITH: " << conflict.moduleCode << ", " << conflict.day << " "
+                     << conflict.time << " in " << conflict.room << "\n";
             }
         }
     }
@@ -609,12 +604,8 @@ void Admin::displayTimetableEntries() const {
             }
         }
 
-        cout << (i + 1) << "\t"
-            << session.moduleCode << "\t"
-            << session.type << "\t"
-            << session.day << "\t"
-            << session.time << "\t"
-            << session.room << "\t";
+        cout << (i + 1) << "\t" << session.moduleCode << "\t" << session.type << "\t" << session.day
+             << "\t" << session.time << "\t" << session.room << "\t";
 
         for (size_t j = 0; j < session.studentGroups.size(); j++) {
             if (j > 0) cout << ", ";

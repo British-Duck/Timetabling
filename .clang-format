@@ -1,0 +1,17 @@
+# Matches the original layout: 4-space indent, attached braces,
+# with `else` and `catch` on their own line.
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+AccessModifierOffset: -4
+BreakBeforeBraces: Custom
+BraceWrapping:
+  BeforeElse: true
+  BeforeCatch: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortCaseLabelsOnASingleLine: true
+IndentCaseLabels: false
+SortIncludes: Never
+MaxEmptyLinesToKeep: 1
+PointerAlignment: Left

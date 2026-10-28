@@ -9,7 +9,7 @@ bool Student::login() {
     studentID.clear();
     group.clear();
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "Student ID: ";
     if (!(cin >> studentID)) {
@@ -60,13 +60,9 @@ void Student::viewTimetable() {
     cout << "\nYour Timetable (" << group << "):\n";
     cout << "Week\tDay\t\tTime\tModule\t\tType\tRoom\tLecturer\n";
     for (const auto& session : timetable) {
-        cout << session.week << "\t"
-            << session.day << "\t"
-            << session.time << "\t"
-            << session.moduleCode << "\t"
-            << session.type << "\t"
-            << session.room << "\t"
-            << session.lecturer << "\n";
+        cout << session.week << "\t" << session.day << "\t" << session.time << "\t"
+             << session.moduleCode << "\t" << session.type << "\t" << session.room << "\t"
+             << session.lecturer << "\n";
     }
 }
 
@@ -87,13 +83,9 @@ void Student::exportToCSV() {
 
     file << "Week,Day,Time,Module,Type,Room,Lecturer\n";
     for (const auto& session : timetable) {
-        file << session.week << ","
-            << session.day << ","
-            << session.time << ","
-            << session.moduleCode << ","
-            << session.type << ","
-            << session.room << ","
-            << session.lecturer << "\n";
+        file << session.week << "," << session.day << "," << session.time << ","
+             << session.moduleCode << "," << session.type << "," << session.room << ","
+             << session.lecturer << "\n";
     }
 
     file.close();

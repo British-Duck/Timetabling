@@ -7,7 +7,6 @@
 #include <limits>
 using namespace std;
 
-
 void TimetableSystem::run() {
     while (true) {
         cout << "\nNTU Timetabling System\n";
@@ -62,7 +61,7 @@ void TimetableSystem::addModule(const Module& module) {
 }
 
 void TimetableSystem::loadData() {
-    
+
     try {
         ifstream file("data.dat");
         if (file) {
@@ -200,7 +199,7 @@ bool TimetableSystem::assignStudentToGroup(const string& studentId, const string
 // Assign lecturer to module
 bool TimetableSystem::assignLecturerToModule(const string& lecturer, const string& moduleCode) {
     auto it = find_if(modules.begin(), modules.end(),
-        [&moduleCode](const Module& m) { return m.code == moduleCode; });
+                      [&moduleCode](const Module& m) { return m.code == moduleCode; });
 
     if (it == modules.end()) return false; // Module doesn't exist
     if (find(lecturers.begin(), lecturers.end(), lecturer) == lecturers.end()) {
@@ -212,7 +211,6 @@ bool TimetableSystem::assignLecturerToModule(const string& lecturer, const strin
 }
 
 // Getters
-
 
 const vector<string>& TimetableSystem::getAllStudentGroups() const {
     return studentGroups;
@@ -242,8 +240,6 @@ std::string TimetableSystem::getStudentGroup(const std::string& studentId) const
     auto it = studentGroupMap.find(studentId);
     return (it != studentGroupMap.end()) ? it->second : "";
 }
-
-
 
 bool TimetableSystem::removeSession(int index) {
     if (index < 0 || index >= static_cast<int>(sessions.size())) return false;
@@ -281,37 +277,30 @@ vector<Session> TimetableSystem::findConflicts(const Session& session) const {
 
     for (const auto& existing : sessions) {
         // Skip self-comparison for existing sessions
-        if (existing.moduleCode == session.moduleCode &&
-            existing.week == session.week &&
-            existing.day == session.day &&
-            existing.time == session.time) {
+        if (existing.moduleCode == session.moduleCode && existing.week == session.week &&
+            existing.day == session.day && existing.time == session.time) {
             continue;
         }
 
         // Check room conflict
-        if (existing.room == session.room &&
-            existing.week == session.week &&
-            existing.day == session.day &&
-            existing.time == session.time) {
+        if (existing.room == session.room && existing.week == session.week &&
+            existing.day == session.day && existing.time == session.time) {
             conflicts.push_back(existing);
             continue;
         }
 
         // Check lecturer conflict
-        if (existing.lecturer == session.lecturer &&
-            existing.week == session.week &&
-            existing.day == session.day &&
-            existing.time == session.time) {
+        if (existing.lecturer == session.lecturer && existing.week == session.week &&
+            existing.day == session.day && existing.time == session.time) {
             conflicts.push_back(existing);
             continue;
         }
 
         // Check group conflicts
         for (const auto& group : session.studentGroups) {
-            if (find(existing.studentGroups.begin(),
-                existing.studentGroups.end(), group) != existing.studentGroups.end() &&
-                existing.week == session.week &&
-                existing.day == session.day &&
+            if (find(existing.studentGroups.begin(), existing.studentGroups.end(), group) !=
+                    existing.studentGroups.end() &&
+                existing.week == session.week && existing.day == session.day &&
                 existing.time == session.time) {
                 conflicts.push_back(existing);
                 break;
