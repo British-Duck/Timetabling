@@ -244,19 +244,23 @@ std::string TimetableSystem::getStudentGroup(const std::string& studentId) const
     return (it != studentGroupMap.end()) ? it->second : "";
 }
 
-bool TimetableSystem::removeSession(int index) {
-    if (index < 0 || index >= static_cast<int>(sessions.size())) return false;
-
-    // Remove from main sessions list
-    sessions.erase(sessions.begin() + index);
-
-    // Rebuild group timetables
+// groupTimetables holds copies of sessions, so it is rebuilt after any edit or removal
+void TimetableSystem::rebuildGroupTimetables() {
     groupTimetables.clear();
     for (const auto& session : sessions) {
         for (const auto& group : session.studentGroups) {
             groupTimetables[group].push_back(session);
         }
     }
+}
+
+bool TimetableSystem::removeSession(int index) {
+    if (index < 0 || index >= static_cast<int>(sessions.size())) return false;
+
+    // Remove from main sessions list
+    sessions.erase(sessions.begin() + index);
+
+    rebuildGroupTimetables();
     return true;
 }
 
@@ -265,13 +269,7 @@ bool TimetableSystem::editSession(int index, const Session& newSession) {
 
     sessions[index] = newSession;
 
-    // Rebuild group timetables
-    groupTimetables.clear();
-    for (const auto& session : sessions) {
-        for (const auto& group : session.studentGroups) {
-            groupTimetables[group].push_back(session);
-        }
-    }
+    rebuildGroupTimetables();
     return true;
 }
 

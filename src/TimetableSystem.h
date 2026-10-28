@@ -20,6 +20,8 @@ private:
     std::vector<std::string> students;      // All registered students
     std::unordered_map<std::string, std::string> studentGroupMap;
 
+    void rebuildGroupTimetables();
+
 public:
     //-------------Core system operations--------------------//
     void run();
